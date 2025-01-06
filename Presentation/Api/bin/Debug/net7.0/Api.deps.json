@@ -170,7 +170,10 @@
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "Application/1.0.0": {
         "runtime": {
-          "Application.dll": {}
+          "Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Domain/1.0.0": {
@@ -178,7 +181,10 @@
           "Application": "1.0.0"
         },
         "runtime": {
-          "Domain.dll": {}
+          "Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Persistence/1.0.0": {
@@ -190,7 +196,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.0"
         },
         "runtime": {
-          "Persistence.dll": {}
+          "Persistence.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

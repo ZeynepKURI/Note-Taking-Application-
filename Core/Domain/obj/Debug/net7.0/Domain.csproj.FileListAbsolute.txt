@@ -8,8 +8,9 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/Domain.AssemblyInfoInputs.cache
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/Domain.csproj.CoreCompileInputs.cache
-/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/Domain.csproj.CopyComplete
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/Domain.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/refint/Domain.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/Domain.pdb
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/ref/Domain.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/Domain.sourcelink.json
+/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/obj/Debug/net7.0/Domain.csproj.Up2Date
