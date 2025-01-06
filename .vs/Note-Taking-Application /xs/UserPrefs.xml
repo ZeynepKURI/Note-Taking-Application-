@@ -1,5 +1,19 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{0283267E-C30A-474D-9A36-3F8C3F44F4DF}|https">
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Core.Application FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Note-Taking-Application " expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Core.Domain FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Infrastructure.Persistence FirstBuild="True" />
 </Properties>
