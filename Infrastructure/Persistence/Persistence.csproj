@@ -10,4 +10,12 @@
     <ProjectReference Include="..\..\Core\Domain\Domain.csproj" />
     <ProjectReference Include="..\..\Core\Application\Application.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Repository\" />
+    <None Remove="Context\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repository\" />
+    <Folder Include="Context\" />
+  </ItemGroup>
 </Project>
