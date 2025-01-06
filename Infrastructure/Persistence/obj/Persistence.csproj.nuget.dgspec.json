@@ -80,7 +80,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj": {
+                "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
