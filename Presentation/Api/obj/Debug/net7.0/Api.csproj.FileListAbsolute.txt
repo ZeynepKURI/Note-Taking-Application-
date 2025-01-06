@@ -5,8 +5,12 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Api.runtimeconfig.json
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Api.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Api.pdb
-/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.OpenApi.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Npgsql.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll

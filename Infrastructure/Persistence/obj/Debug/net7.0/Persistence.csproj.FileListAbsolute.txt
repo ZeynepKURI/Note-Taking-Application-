@@ -1,4 +1,5 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/bin/Debug/net7.0/Persistence.deps.json
+/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/bin/Debug/net7.0/Persistence.runtimeconfig.json
 /Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/bin/Debug/net7.0/Persistence.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/bin/Debug/net7.0/Persistence.pdb
 /Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/bin/Debug/net7.0/Application.dll
@@ -14,4 +15,5 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/obj/Debug/net7.0/Persistence.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/obj/Debug/net7.0/refint/Persistence.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/obj/Debug/net7.0/Persistence.pdb
+/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/obj/Debug/net7.0/Persistence.genruntimeconfig.cache
 /Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/obj/Debug/net7.0/ref/Persistence.dll
