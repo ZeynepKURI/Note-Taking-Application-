@@ -1,4 +1,6 @@
 ﻿using System;
+using Application.DTOs;
+
 namespace Application.Interfaces
 {
 	public interface IUser
@@ -12,8 +14,7 @@ namespace Application.Interfaces
 
         string Password { get; set; }
 
-
-    
+      
     }
    
 
