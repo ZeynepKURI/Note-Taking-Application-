@@ -2,6 +2,7 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/bin/Debug/net7.0/Application.runtimeconfig.json
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/bin/Debug/net7.0/Application.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/bin/Debug/net7.0/Application.pdb
+/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/Debug/net7.0/Application.csproj.AssemblyReference.cache
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/Debug/net7.0/Application.GeneratedMSBuildEditorConfig.editorconfig
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/Debug/net7.0/Application.AssemblyInfoInputs.cache
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/Debug/net7.0/Application.AssemblyInfo.cs
@@ -11,4 +12,3 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/Debug/net7.0/Application.pdb
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/Debug/net7.0/Application.genruntimeconfig.cache
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/Debug/net7.0/ref/Application.dll
-/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/Debug/net7.0/Application.sourcelink.json
