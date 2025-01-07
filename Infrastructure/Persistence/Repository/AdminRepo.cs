@@ -20,26 +20,30 @@ namespace Persistence.Repository
             this.appDbContext = appDbContext;
         }
 
-        private async Task<Admin> FindUserByEmail(string email) =>
-            await appDbContext.admins.FirstOrDefaultAsync(u => u.Email == email);
+        private async Task<Admin> FindAdminByEmail(string email) =>
+        await appDbContext.admins.FirstOrDefaultAsync(u => u.Email == email);
+
+
         public async Task<LoginResponse> LoginAsync(LoginDTO loginDTO)
         {
             // Kullanıcıyı e-posta ile bulalım
-            var getUser = await FindUserByEmail(loginDTO.Email!);
-            if (getUser == null)
-                return new LoginResponse(false, "User not found");
+            var getAdmin = await FindAdminByEmail(loginDTO.Email!);
+            if (getAdmin == null)
+                return new LoginResponse(false, "Admin not found");
 
             // Şifreyi doğrulayalım
-            bool checkPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getUser.Password);
+            bool checkPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getAdmin.Password);
             if (checkPassword)
                 return new LoginResponse(true, "Login successful");
             else
                 return new LoginResponse(false, "Invalid credentials");
         }
 
+
+
         public async Task<RegisterResponse> RegisterAsync(RegisterDTO registerDTO)
         {
-            var getUser = await FindUserByEmail(registerDTO.Email!);
+            var getUser = await FindAdminByEmail(registerDTO.Email!);
             if (getUser != null)
                 return new RegisterResponse(false, "User already exists");
 
@@ -52,7 +56,7 @@ namespace Persistence.Repository
 
             });
             await appDbContext.SaveChangesAsync();
-            return new RegisterResponse(true, "User registered succesfully");
+            return new RegisterResponse(true, "Admin registered succesfully");
 
 
         }
