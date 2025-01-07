@@ -3,6 +3,7 @@ namespace Persistence.Repository
 {
 	public interface IUserRepo
 	{
+		
 	}
 }
 

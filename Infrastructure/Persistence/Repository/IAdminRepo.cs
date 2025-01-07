@@ -1,11 +1,8 @@
 ﻿using System;
 namespace Persistence.Repository
 {
-	public class IRegisterRepo
+	public interface IAdminRepo
 	{
-		public IRegisterRepo()
-		{
-		}
 	}
 }
 
