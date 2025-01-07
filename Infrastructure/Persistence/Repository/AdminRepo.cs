@@ -37,9 +37,24 @@ namespace Persistence.Repository
                 return new LoginResponse(false, "Invalid credentials");
         }
 
-        public Task<RegisterResponse> RegisterAsync(RegisterDTO registerDTO)
+        public async Task<RegisterResponse> RegisterAsync(RegisterDTO registerDTO)
         {
-            throw new NotImplementedException();
+            var getUser = await FindUserByEmail(registerDTO.Email!);
+            if (getUser != null)
+                return new RegisterResponse(false, "User already exists");
+
+            appDbContext.admins.Add(new Admin()
+            {
+                Username = registerDTO.Username,
+                Email= registerDTO.Email,
+                Password = BCrypt.Net.BCrypt.HashPassword(registerDTO.Password),
+           
+
+            });
+            await appDbContext.SaveChangesAsync();
+            return new RegisterResponse(true, "User registered succesfully");
+
+
         }
     }
 }
