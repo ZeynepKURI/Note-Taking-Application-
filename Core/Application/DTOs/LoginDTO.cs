@@ -5,6 +5,7 @@ namespace Application.DTOs
 {
 	public class LoginDTO
 	{
+		public int Id { get; set; }
 		[Required, EmailAddress]
 		public string Email { get; set; }
 		[Required]
