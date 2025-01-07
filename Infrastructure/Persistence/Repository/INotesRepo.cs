@@ -5,8 +5,8 @@ namespace Persistence.Repository
 {
 	public interface INotesRepo
 	{
+		Task<NoteDTO> GetNotesByIdAsync(int id);
 		Task<List<NoteDTO>> GetAllNotesAsync();
-		Task<NoteDTO> GetNoteByIdAsync(int id);
 		Task AddNotesAsync(NoteDTO noteDTO);
 		Task UpdateNotesAsync(NoteDTO noteDTO);
 		Task DeleteNotesAsync(int Id);
