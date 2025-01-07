@@ -1,6 +1,7 @@
 ﻿using System;
 using Application.DTOs;
 using Domain.Enitities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Persistence.Context;
 using Persistence.Service;
@@ -18,8 +19,9 @@ namespace Persistence.Repository
             this.configuration = configuration;
             this.appDbContext = appDbContext;
         }
-      
 
+        private async Task<Admin> FindUserByEmail(string email) =>
+            await appDbContext.admins.FirstOrDefaultAsync(u => u.Email == email);
         public async Task<LoginResponse> LoginAsync(LoginDTO loginDTO)
         {
             // Kullanıcıyı e-posta ile bulalım

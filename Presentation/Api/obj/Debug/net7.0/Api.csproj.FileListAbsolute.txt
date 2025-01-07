@@ -5,6 +5,7 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Api.runtimeconfig.json
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Api.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Api.pdb
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/BCrypt.Net-Core.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Humanizer.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
