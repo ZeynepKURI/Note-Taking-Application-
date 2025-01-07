@@ -4,7 +4,7 @@ using Persistence.Service;
 
 namespace Persistence.Repository
 {
-    public class NotesRepository : INotesService
+    public class NotesRepo : INotesService
     {
         public Task AddNotesAsync()
         {

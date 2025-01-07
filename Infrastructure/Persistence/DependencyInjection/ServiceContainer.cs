@@ -20,7 +20,6 @@ namespace Persistence.DependencyInjection
 
 
             services.AddScoped<INotesService, NotesService>();
-            services.AddScoped<INotesRepo, NotesRepo>();
             services.AddScoped<IAuthService, AdminRepo>();
             services.AddScoped<IAuthService, UserRepo>();
             return services;
