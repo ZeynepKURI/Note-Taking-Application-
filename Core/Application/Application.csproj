@@ -8,12 +8,10 @@
 
   <ItemGroup>
     <None Remove="DTOs\" />
-    <None Remove="Services\" />
     <None Remove="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOs\" />
-    <Folder Include="Services\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
