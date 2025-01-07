@@ -1,11 +1,11 @@
 ﻿using System;
+using Persistence.Service;
+
 namespace Persistence.Repository
 {
-	public class NotesRepository
+	public class NotesRepository :INotesService
 	{
-		public NotesRepository()
-		{
-		}
+		
 	}
 }
 
