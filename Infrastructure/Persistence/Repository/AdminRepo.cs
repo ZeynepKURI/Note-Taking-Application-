@@ -1,8 +1,11 @@
 ﻿using System;
 namespace Persistence.Repository
 {
-	public interface INotesRepo
+	public class AdminRepo
 	{
+		public AdminRepo()
+		{
+		}
 	}
 }
 
