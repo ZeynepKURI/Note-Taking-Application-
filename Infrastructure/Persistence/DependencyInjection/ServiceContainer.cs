@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Context;
+using Persistence.Repository;
+using Persistence.Service;
 
 namespace Persistence.DependencyInjection
 {
@@ -16,6 +18,10 @@ namespace Persistence.DependencyInjection
                     npgsqlOptions => npgsqlOptions.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName) // Ensure the migrations are in the correct assembly
                 ), ServiceLifetime.Scoped);
 
+
+         
+            services.AddScoped<IAuthService, AdminRepo>();
+            services.AddScoped<IAuthService, UserRepo>();
             return services;
         }
     }
