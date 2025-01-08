@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "JC+FHejYPHvd7GM83fLX4BadKynkbPq5F1Y/hGSfjz5EIsyvJzs6R23Mp4cf5GZpJ2hYvnEp4smua4513a+3Rw==",
+  "dgSpecHash": "xH01a5hxeQaUkeVV3c02DeocndPGgT1+4C+Ns5/S6QunavQxLAmRNzoI+P0e0/Q2KCGlEKbbh9aTOKNYt6u2eQ==",
   "success": true,
   "projectFilePath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/Api.csproj",
   "expectedPackageFiles": [
+    "/Users/zeynepkuri/.nuget/packages/automapper/7.0.1/automapper.7.0.1.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/bcrypt.net-core/1.6.0/bcrypt.net-core.1.6.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.entityframeworkcore/7.0.0/microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
@@ -34,7 +35,8 @@
     "/Users/zeynepkuri/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
+    "/Users/zeynepkuri/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
