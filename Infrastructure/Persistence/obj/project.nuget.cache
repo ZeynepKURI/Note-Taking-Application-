@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P10rfNPBGU4=",
+  "dgSpecHash": "edssU31BRtlPgsjHGHVgis36yNa3mK47nGiRtdtabyGqfwN4K7kYySkDxVXVq21+2h+AqPmOeUDhBcmgcHTWKA==",
   "success": true,
   "projectFilePath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Persistence.csproj",
   "expectedPackageFiles": [
@@ -30,9 +30,7 @@
     "/Users/zeynepkuri/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+    "/Users/zeynepkuri/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,6 +1,8 @@
 ﻿<Properties StartupConfiguration="{0283267E-C30A-474D-9A36-3F8C3F44F4DF}|https">
-  <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <Breakpoint file="/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" relfile="Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" line="29" column="1" />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Persistence/Service/NotesService.cs">
     <Files>
       <File FileName="Infrastructure/Persistence/Service/NotesService.cs" Line="66" Column="1" />
@@ -41,11 +43,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.Core.Application FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" relfile="Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" line="29" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
