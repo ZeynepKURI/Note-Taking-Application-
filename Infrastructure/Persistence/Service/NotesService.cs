@@ -82,6 +82,15 @@ namespace Persistence.Service
         public async Task UpdateNotesAsync(NoteDTO noteDTO, int Id)
         {
             var Notes = await _notesRepo.GetAllByIdAsync(Id);
+            if( Notes!=null)
+            {
+                Notes.Title = noteDTO.Title;
+                Notes.Content = noteDTO.Content;
+                Notes.CreatedAt = noteDTO.CreatedAt;
+
+                await _notesRepo.UpdateNotesAsync(Notes);
+                
+            }
         }
     }
 }
