@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
+
     public class UserController : ControllerBase
     {
         private readonly IAuthService authService;
@@ -14,15 +17,14 @@ namespace Api.Controllers
         {
             this.authService = authService;
         }
-
-
+        [HttpPost("Login")]
         public async Task<ActionResult<LoginResponse>> LoginUserIn(LoginDTO loginDTO)
         {
             var result = await authService.LoginAsync(loginDTO);
             return Ok(result);
         }
 
-
+        [HttpPost("Register")]
         public async Task<ActionResult<LoginResponse>> RegisterUserDTO(RegisterDTO registerDTO)
 
         {
