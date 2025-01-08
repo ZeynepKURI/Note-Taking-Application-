@@ -7,7 +7,7 @@ namespace Application.Interfaces
 	{
         Task<List<NoteDTO>> GetAllNotesAsync();
         Task<NoteDTO> GetNotesByIdAsync(int Id);
-        Task AddNotesAsync();
+        Task AddNotesAsync(NoteDTO noteDTO);
         Task UpdateNotesAsync();
         Task DeleteNotesAsync(int Id);
 
