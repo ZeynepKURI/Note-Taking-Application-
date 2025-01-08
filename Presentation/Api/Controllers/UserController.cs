@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,5 +15,10 @@ namespace Api.Controllers
             authService = _authService;
         }
 
+
+        public async Task<ActionResult<LoginResponse>> LoginAsync(LoginDTO loginDTO)
+        {
+            var result = await User.LoginUserAsync(loginDTO);
+        }
     }
 }
