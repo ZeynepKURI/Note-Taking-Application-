@@ -19,7 +19,7 @@ namespace Persistence.DependencyInjection
                     npgsqlOptions => npgsqlOptions.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName) // Ensure the migrations are in the correct assembly
                 ), ServiceLifetime.Scoped);
 
-
+          
             services.AddScoped<INotesRepo, NotesRepo>();
             services.AddScoped<INotesService, NotesService>();
             services.AddScoped<IAuthService, AdminRepo>();

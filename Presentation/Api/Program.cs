@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using AutoMapper;
+using Domain.Mapping;
+using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
 using Persistence.DependencyInjection; // ServiceContainer'ın bulunduğu namespace
 
@@ -11,7 +14,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 var app = builder.Build();
 
