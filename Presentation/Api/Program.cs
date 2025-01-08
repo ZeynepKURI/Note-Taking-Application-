@@ -1,8 +1,6 @@
 ﻿
+using Application.Mapping;
 using AutoMapper;
-using Domain.Mapping;
-using Microsoft.EntityFrameworkCore;
-using Persistence.Context;
 using Persistence.DependencyInjection; // ServiceContainer'ın bulunduğu namespace
 
 var builder = WebApplication.CreateBuilder(args);

@@ -3695,6 +3695,21 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
+          "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Application.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -3709,7 +3724,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "AutoMapper": "7.0.1",
+          "Application": "1.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
           "BCrypt.Net-Core": "1.6.0",
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.0",
@@ -11042,6 +11058,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Application/1.0.0": {
+      "type": "project",
+      "path": "../../Core/a/Application.csproj",
+      "msbuildProject": "../../Core/a/Application.csproj"
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../../Core/Domain/Domain.csproj",
@@ -11055,6 +11076,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Application >= 1.0.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 7.0.0",
       "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.0",
@@ -11093,6 +11115,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj": {
+              "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj"
+            },
             "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/Domain.csproj": {
               "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/Domain.csproj"
             },
