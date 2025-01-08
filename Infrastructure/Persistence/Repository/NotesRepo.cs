@@ -19,29 +19,37 @@ namespace Persistence.Repository
             context = _context;
         }
 
-        public Task AddNotesAsync(Note note)
+        public async Task AddNotesAsync(Note note)
         {
-            throw new NotImplementedException();
+            await context.notes.AddAsync(note);
+            await context.SaveChangesAsync();
+        }
+           
+
+        public async Task DeleteNotesAsync(int Id)
+        {
+            var note = await context.notes.FindAsync(Id);
+            if(note!=null)
+            {
+                context.notes.Remove(note);
+                await context.SaveChangesAsync();
+            }
         }
 
-        public Task DeleteNotesAsync(int Id)
+        public async Task<Note> GetAllByIdAsync(int Id)
         {
-            throw new NotImplementedException();
+            return await context.notes.FindAsync(Id);
         }
 
-        public Task<Note> GetAllByIdAsync(int Id)
+        public async Task<List<Note>> GetAllNotesAsync()
         {
-            throw new NotImplementedException();
+            return await context.notes.ToListAsync();
         }
 
-        public Task<List<Note>> GetAllNotesAsync()
+        public async Task UpdateNotesAsync(Note note)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateNotesAsync(Note note)
-        {
-            throw new NotImplementedException();
+           context.notes.Update(note);
+            await context.SaveChangesAsync();
         }
     }
 }
