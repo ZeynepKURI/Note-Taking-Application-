@@ -5,7 +5,7 @@ using Application.Interfaces;
 
 namespace Persistence.Repository
 {
-    public class NotesRepo : INotesService
+    public class NotesRepo : INotesRepo
     {
         public Task AddNotesAsync()
         {
@@ -13,6 +13,11 @@ namespace Persistence.Repository
         }
 
         public Task DeleteNotesAsync(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<NoteDTO> GetAllByIdAsync(int Id)
         {
             throw new NotImplementedException();
         }
