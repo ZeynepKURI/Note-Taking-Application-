@@ -1,5 +1,6 @@
-﻿using System;
+﻿
 using Application.DTOs;
+using Application.Interfaces;
 
 namespace Persistence.Service
 {

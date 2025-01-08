@@ -1,11 +1,17 @@
 ﻿<Properties StartupConfiguration="{0283267E-C30A-474D-9A36-3F8C3F44F4DF}|https">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Persistence/Repository/INotesRepo.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Persistence/DependencyInjection/ServiceContainer.cs">
     <Files>
-      <File FileName="Infrastructure/Persistence/Repository/NotesRepo.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Persistence/Repository/INotesRepo.cs" Line="16" Column="1" />
+      <File FileName="Infrastructure/Persistence/Repository/NotesRepo.cs" Line="32" Column="10" />
+      <File FileName="Infrastructure/Persistence/Service/NotesService.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Persistence/Repository/AdminRepo.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Persistence/Service/IAuthService.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Persistence/Service/INotesService.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Persistence/Repository/UserRepo.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Persistence/DependencyInjection/ServiceContainer.cs" Line="23" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,18 +25,14 @@
                 <Node name="Enitities" expanded="True" />
               </Node>
             </Node>
-            <Node name="Infrastructure">
-              <Node name="Persistence">
+            <Node name="Infrastructure" expanded="True">
+              <Node name="Persistence" expanded="True">
+                <Node name="DependencyInjection" expanded="True" />
                 <Node name="Repository" expanded="True" />
                 <Node name="Service" expanded="True" />
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State name="__root__">
-          <Node name="Note-Taking-Application " expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
@@ -40,5 +42,4 @@
       <Breakpoint file="/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" relfile="Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" line="29" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

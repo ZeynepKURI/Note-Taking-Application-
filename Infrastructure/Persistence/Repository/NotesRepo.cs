@@ -1,6 +1,7 @@
-﻿using System;
+﻿
 using Application.DTOs;
-using Persistence.Service;
+using Application.Interfaces;
+
 
 namespace Persistence.Repository
 {

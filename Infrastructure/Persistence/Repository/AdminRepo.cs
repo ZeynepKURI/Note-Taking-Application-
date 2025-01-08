@@ -1,5 +1,6 @@
 ﻿using System;
 using Application.DTOs;
+using Application.Interfaces;
 using Domain.Enitities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

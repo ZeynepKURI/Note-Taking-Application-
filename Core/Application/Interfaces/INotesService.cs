@@ -1,7 +1,7 @@
 ﻿using System;
 using Application.DTOs;
 
-namespace Persistence.Service
+namespace Application.Interfaces
 {
 	public interface INotesService
 	{
