@@ -52,8 +52,6 @@ namespace Persistence.Service
         }
 
 
-
-
         public async Task AddNotesAsync(NoteDTO noteDTO)
         {
             // DTO'yu Entity'ye dönüştürmek için AutoMapper kullanabilirsiniz (ya da manuel yapabilirsiniz)
@@ -64,21 +62,26 @@ namespace Persistence.Service
         }
 
 
-
-
-
-
-        public Task DeleteNotesAsync(int Id)
+        public async Task DeleteNotesAsync(int Id)
         {
-            throw new NotImplementedException();
+            var Notes = await _notesRepo.GetAllByIdAsync(Id);
+            if(Notes!=null)
+            {
+                await _notesRepo.DeleteNotesAsync(Id);
+               
+            }
+            else
+            {
+                throw new Exception("Notes not found");
+            }
         }
 
        
      
 
-        public Task UpdateNotesAsync()
+        public async Task UpdateNotesAsync(NoteDTO noteDTO, int Id)
         {
-            throw new NotImplementedException();
+            var Notes = await _notesRepo.GetAllByIdAsync(Id);
         }
     }
 }
