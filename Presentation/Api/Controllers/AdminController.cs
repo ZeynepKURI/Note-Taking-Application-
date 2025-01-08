@@ -1,16 +1,34 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+using Application.DTOs;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    public class AdminController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AdminController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IAuthService authService;
+        public AdminController(IAuthService _authService)
         {
-            return View();
+            this.authService = _authService;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<LoginResponse>> LoginUserIn(LoginDTO loginDTO)
+        {
+            var result = await authService.LoginAsync(loginDTO);
+            return Ok(result);
+        }
+
+
+        [HttpPost]
+
+        public async Task<ActionResult<LoginResponse>> RegisterUserDTO(RegisterDTO registerDTO)
+        {
+            var result = await authService.RegisterAsync(registerDTO);
+            return Ok(result);
         }
     }
 }
