@@ -1,11 +1,22 @@
 ﻿
 using Application.DTOs;
 using Application.Interfaces;
+using Persistence.Context;
 
 namespace Persistence.Service
 {
     public class NotesService : INotesService
     {
+        private readonly INotesRepo _notesRepo;
+
+        public NotesService(INotesRepo  notesRepo)
+        {
+            _notesRepo = notesRepo;
+        }
+
+
+
+
         public Task AddNotesAsync()
         {
             throw new NotImplementedException();
