@@ -6,19 +6,30 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
         private readonly IAuthService authService;
 
-        public UserController(IAuthService _authService)
+        public UserController(IAuthService authService)
         {
-            authService = _authService;
+            this.authService = authService;
         }
 
 
-        public async Task<ActionResult<LoginResponse>> LoginAsync(LoginDTO loginDTO)
+        public async Task<ActionResult<LoginResponse>> LoginUserIn(LoginDTO loginDTO)
         {
-            var result = await User.LoginUserAsync(loginDTO);
+            var result = await authService.LoginAsync(loginDTO);
+            return Ok(result);
         }
-    }
+
+
+        public async Task<ActionResult<LoginResponse>> RegisterUserDTO(RegisterDTO registerDTO)
+
+        {
+            var result = await authService.RegisterAsync(registerDTO);
+
+            return Ok(result);
+        }
+
+        }
 }
