@@ -51,6 +51,14 @@ namespace Persistence.Repository
            context.notes.Update(note);
             await context.SaveChangesAsync();
         }
+
+
+        public async Task<List<Note>> GetNotesByUserIdAsync(string userId)
+        {
+            return await context.notes
+                .Where(n => n.UserId == userId)
+                .ToListAsync();
+        }
     }
 }
 

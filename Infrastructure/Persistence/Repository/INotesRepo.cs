@@ -12,6 +12,7 @@ namespace Persistence.Repository
 		Task AddNotesAsync(Note note);
 		Task UpdateNotesAsync(Note note);
 		Task DeleteNotesAsync(int Id);
+		Task<List<Note>> GetNotesByUserIdAsync(string userId);
 
 	}
 }

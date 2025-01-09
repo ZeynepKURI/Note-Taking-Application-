@@ -29,11 +29,22 @@ namespace Persistence.Service
 
         public async Task<List<NoteDTO>> GetAllNotesAsync()
         {
- 
-            var Notes = await _notesRepo.GetAllNotesAsync();
+            // Kullanıcı ID'sini ve rolünü al
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+            var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
 
-            // Entity'leri DTO'ya dönüştürme
-            return _mapper.Map<List<NoteDTO>>(Notes);
+            if (roles == "Admin")
+            {
+                // Admin ise tüm notları getir ve DTO'ya dönüştür
+                var notes = await _notesRepo.GetAllNotesAsync();
+                return _mapper.Map<List<NoteDTO>>(notes); // Entity'leri DTO'ya dönüştür
+            }
+            else
+            {
+                // Kullanıcı ise sadece kendi notlarını getir ve DTO'ya dönüştür
+                var notes = await _notesRepo.GetNotesByUserIdAsync(userId);
+                return _mapper.Map<List<NoteDTO>>(notes); // Entity'leri DTO'ya dönüştür
+            }
         }
 
 
