@@ -1,9 +1,13 @@
 ﻿using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using Application.DTOs;
 using Application.Interfaces;
 using Domain.Enitities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Persistence.Context;
 using Persistence.Service;
 
@@ -40,6 +44,31 @@ namespace Persistence.Repository
                 return new LoginResponse(false, "Invalid credentials");
         }
 
+
+
+
+        private string GenerateJWTToken(User user)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var userClaims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name ,user.Username),
+                new Claim(ClaimTypes.Email, user.Email!)
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: configuration["Jwt:Issuer"],
+                audience: configuration["Jwt:Audience"],
+                claims: userClaims,
+                expires: DateTime.Now.AddDays(5),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
 
 
         public async Task<RegisterResponse> RegisterAsync(RegisterDTO registerDTO)

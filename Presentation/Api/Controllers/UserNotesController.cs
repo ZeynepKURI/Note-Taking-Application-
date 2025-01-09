@@ -31,7 +31,7 @@ namespace Api.Controllers
                 return Unauthorized("User Id not found");
             }
 
-            var Notes = await _notesService.GetNotesByIdAsync(userId);
+            var Notes = await _notesService.GetNotesByUserIdAsync(userId);
             return Ok(Notes);
         }
            
