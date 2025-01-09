@@ -22,27 +22,31 @@ namespace Api.Controllers
         }
 
 
-        [HttpGet("notes")]
+        [HttpGet]
         public async Task<ActionResult<List<NoteDTO>>> GetUserNotes()
 
         {
             try
             {
+                var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
 
-                var Notes = await _notesService.GetAllNotesAsync();
-                return Ok(Notes);
+                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                {
+                    return Unauthorized(" User Id not found");
+                }
 
+                var notes = await _notesService.GetNotesByUserIdAsync(userId);
+                return Ok(notes);
             }
-            catch(UnauthorizedAccessException ex)
-            {
-                return Forbid(ex.Message);
-            }
-
-            catch ( Exception ex)
+            catch(Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            }
+
+
+
+
+        }
 
 
 
