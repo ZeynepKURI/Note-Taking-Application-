@@ -1,8 +1,6 @@
 
 using Application.DTOs;
 using Application.Interfaces;
-using Domain.Enitities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
