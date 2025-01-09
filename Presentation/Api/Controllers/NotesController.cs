@@ -16,16 +16,87 @@ namespace Api.Controllers
             _noteService = noteService;
         }
 
-        
+
+
         [HttpGet]
         public async Task<ActionResult> GetAllNotes()
         {
-            var notes = await _noteService.GetAllNotesAsync();
-            return Ok(notes);
+            {
+                try
+                {
+                    var notes = await _noteService.GetAllNotesAsync();
+                    return Ok(notes);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+        
         }
 
-    
 
-       
+
+        [HttpGet("id")]
+        public async Task<ActionResult> GetAllNotesById(int Id)
+        {
+            try
+            {
+                var notes = await _noteService.GetNotesByIdAsync(Id);
+                return Ok(notes);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+
+        [HttpPut("id")]
+        public async Task<ActionResult> UpdateNote(int Id, [FromBody] NoteDTO noteDTO)
+        {
+            try
+            {
+                await _noteService.UpdateNotesAsync(noteDTO, Id);
+                return Ok("Note updated succesfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddNotes([FromBody] NoteDTO noteDTO)
+        {
+            try
+            {
+                await _noteService.AddNotesAsync(noteDTO);
+                return Ok("Note Added succesfully.");
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+
+            }
+        }
+
+        [HttpDelete("id")]
+        public async Task<ActionResult>DeleteNotes(int Id)
+        {
+            try
+            {
+                await _noteService.DeleteNotesAsync(Id);
+                return Ok("Note Delete Succesfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
