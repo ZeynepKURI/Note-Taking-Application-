@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -77,8 +74,25 @@ namespace Api.Controllers
 
 
         }
+        [HttpPost]
+        public async Task<ActionResult> CreateNotes([FromBody] NoteDTO noteDTO)
+        {
 
+            try
+            { var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
 
+                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                {
+                    return Unauthorized("User ID not found or invalid");
+                }
+                await _notesService.AddNotesAsync(noteDTO);
+                return Ok("Note created successfuly");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 
 

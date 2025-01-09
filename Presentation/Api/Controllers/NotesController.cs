@@ -26,6 +26,8 @@ namespace Api.Controllers
                 {
                     var notes = await _noteService.GetAllNotesAsync();
                     return Ok(notes);
+
+
                 }
                 catch (Exception ex)
                 {

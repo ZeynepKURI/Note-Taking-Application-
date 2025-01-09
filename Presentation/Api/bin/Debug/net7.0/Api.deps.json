@@ -15,6 +15,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.0",
+          "Microsoft.Extensions.Logging": "7.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.0",
           "Persistence": "1.0.0",
