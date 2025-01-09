@@ -18,6 +18,8 @@ namespace Persistence.DependencyInjection
                     configuration.GetConnectionString("Default"), // Connection string is taken from the configuration
                     npgsqlOptions => npgsqlOptions.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName) // Ensure the migrations are in the correct assembly
                 ), ServiceLifetime.Scoped);
+
+
             services.AddHttpContextAccessor();
             services.AddScoped<INotesRepo, NotesRepo>();
             services.AddScoped<INotesService, NotesService>();

@@ -9,6 +9,7 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/BCrypt.Net-Core.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Humanizer.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.AspNetCore.Razor.Language.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.Build.dll
@@ -33,6 +34,8 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.NET.StringTools.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.OpenApi.dll
@@ -244,6 +247,3 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/obj/Debug/net7.0/Api.pdb
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/obj/Debug/net7.0/Api.genruntimeconfig.cache
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/obj/Debug/net7.0/ref/Api.dll
-/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
-/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
-/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

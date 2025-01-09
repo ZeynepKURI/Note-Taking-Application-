@@ -53,14 +53,17 @@ namespace Persistence.Repository
         }
 
 
-        public async Task<List<Note>> GetNotesByUserIdAsync(string userId)
+        public async Task<List<Note>> GetNotesByUserIdAsync(int userId)
         {
             return await context.notes
                 .Where(n => n.UserId == userId)
                .ToListAsync();
         }
 
-       
+        public Task<List<Note>> GetNotesByUserIdAsync(string userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

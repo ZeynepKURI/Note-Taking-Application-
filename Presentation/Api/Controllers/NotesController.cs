@@ -18,13 +18,16 @@ namespace Api.Controllers
             _noteService = noteService;
         }
 
-        // Tüm notları getiren GET endpoint'i
+        
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult> GetAllNotes()
         {
             var notes = await _noteService.GetAllNotesAsync();
             return Ok(notes);
         }
+
+    
+
+       
     }
 }
