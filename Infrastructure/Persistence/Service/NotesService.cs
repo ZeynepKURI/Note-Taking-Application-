@@ -27,7 +27,7 @@ namespace Persistence.Service
         // Tüm notları getiren metod (Admin için tüm notlar, kullanıcı için sadece kendi notları)
         public async Task<List<NoteDTO>> GetAllNotesAsync()
         {
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
             var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
 
             // Admin için tüm notları getir
@@ -39,11 +39,17 @@ namespace Persistence.Service
             else
             {
                 // Kullanıcı için sadece kendi notlarını getir
-                var notes = await _notesRepo.GetNotesByUserIdAsync(userId);
-                return _mapper.Map<List<NoteDTO>>(notes);
+                if (!string.IsNullOrEmpty(userIdClaim) && int.TryParse(userIdClaim, out int userId))
+                {
+                    var notes = await _notesRepo.GetNotesByUserIdAsync(userId);
+                    return _mapper.Map<List<NoteDTO>>(notes);
+                }
+                else
+                {
+                    throw new Exception("User ID is missing or invalid.");
+                }
             }
         }
-
 
 
 
@@ -139,7 +145,7 @@ namespace Persistence.Service
         }
 
         // Kullanıcıya ait notları getiren metod (yeni eklenen metod)
-        public async Task<List<NoteDTO>> GetNotesByUserIdAsync(string userId)
+        public async Task<List<NoteDTO>> GetNotesByUserIdAsync(int userId)
         {
             var notes = await _notesRepo.GetNotesByUserIdAsync(userId);
             return _mapper.Map<List<NoteDTO>>(notes);

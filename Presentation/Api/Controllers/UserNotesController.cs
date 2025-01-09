@@ -13,28 +13,42 @@ namespace Api.Controllers
     public class UserNotesController : ControllerBase
     {
         private readonly INotesService _notesService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserNotesController( INotesService notesService)
+        public UserNotesController( INotesService notesService, IHttpContextAccessor httpContextAccessor)
         {
             _notesService = notesService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
 
         [HttpGet("notes")]
-        public async Task<ActionResult<List<NoteDTO>>> GetUserNotes(NoteDTO noteDTO)
+        public async Task<ActionResult<List<NoteDTO>>> GetUserNotes()
 
         {
-            var userId = User.FindFirst("sub")?.Value;
-
-            if(string.IsNullOrEmpty(userId))
+            try
             {
-                return Unauthorized("User Id not found");
+
+                var Notes = await _notesService.GetAllNotesAsync();
+                return Ok(Notes);
+
+            }
+            catch(UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
             }
 
-            var Notes = await _notesService.GetNotesByUserIdAsync(userId);
-            return Ok(Notes);
-        }
-           
+            catch ( Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            }
+
+
+
+
+
+
 
 
 

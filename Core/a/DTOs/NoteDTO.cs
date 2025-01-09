@@ -9,7 +9,7 @@ namespace Application.DTOs
 
         public string Content { get; set; }
 
-        public int INote { get; set; }
+        public int UserId { get; set; }
 
         public DateTime CreatedAt{ get; set; }
     }

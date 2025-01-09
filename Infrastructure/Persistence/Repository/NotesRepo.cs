@@ -19,13 +19,39 @@ namespace Persistence.Repository
             context = _context;
         }
 
+
+
+        // Tüm notları getir
+        public async Task<List<Note>> GetAllNotesAsync()
+        {
+            return await context.notes.ToListAsync();
+        }
+
+        // ID'ye göre bir notu getir
+        public async Task<Note> GetAllByIdAsync(int Id)
+        {
+            return await context.notes.FirstOrDefaultAsync(n => n.Id == Id);
+        }
+
+
+        // Kullanıcıya ait notları getir
+        public async Task<List<Note>> GetNotesByUserIdAsync(int userId)
+        {
+            return await context.notes.Where(n => n.UserId == userId).ToListAsync();
+        }
+
+
+
+        // Yeni not ekle
         public async Task AddNotesAsync(Note note)
         {
             await context.notes.AddAsync(note);
             await context.SaveChangesAsync();
         }
-           
 
+
+
+        // Not sil
         public async Task DeleteNotesAsync(int Id)
         {
             var note = await context.notes.FindAsync(Id);
@@ -36,34 +62,14 @@ namespace Persistence.Repository
             }
         }
 
-        public async Task<Note> GetAllByIdAsync(int Id)
-        {
-            return await context.notes.FindAsync(Id);
-        }
-
-        public async Task<List<Note>> GetAllNotesAsync()
-        {
-            return await context.notes.ToListAsync();
-        }
-
+        // Not güncelle
         public async Task UpdateNotesAsync(Note note)
         {
            context.notes.Update(note);
             await context.SaveChangesAsync();
         }
 
-
-        public async Task<List<Note>> GetNotesByUserIdAsync(int userId)
-        {
-            return await context.notes
-                .Where(n => n.UserId == userId)
-               .ToListAsync();
-        }
-
-        public Task<List<Note>> GetNotesByUserIdAsync(string userId)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }
 
