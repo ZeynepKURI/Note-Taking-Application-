@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OQOlhK0YXhQ=",
+  "dgSpecHash": "H4eMBdZNf+ZBxjZWH10/HWX3umlqw2Hj4fMMnKU2xEiYzMwik075CKCOjWkS9KDXIdfEwZlrbDhae0P8Wtoq6A==",
   "success": true,
   "projectFilePath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/Domain.csproj",
-  "expectedPackageFiles": [
-    "/Users/zeynepkuri/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
