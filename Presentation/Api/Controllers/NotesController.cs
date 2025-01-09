@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]  // Controller için route tanımlaması
+    [Route("api/admin")]  // Controller için route tanımlaması
     [ApiController]
     public class NotesController : ControllerBase
     {

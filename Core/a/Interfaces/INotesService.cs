@@ -1,5 +1,6 @@
 ﻿using System;
 using Application.DTOs;
+using Domain.Enitities;
 
 namespace Application.Interfaces
 {
@@ -10,6 +11,7 @@ namespace Application.Interfaces
         Task AddNotesAsync(NoteDTO noteDTO);
         Task UpdateNotesAsync(NoteDTO noteDTO, int Id);
         Task DeleteNotesAsync(int Id);
+      
 
     }
 }

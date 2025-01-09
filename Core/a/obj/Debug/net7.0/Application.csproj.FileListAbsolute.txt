@@ -8,9 +8,8 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/Application.AssemblyInfoInputs.cache
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/Application.AssemblyInfo.cs
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/Application.csproj.CoreCompileInputs.cache
+/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/Application.csproj.CopyComplete
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/Application.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/refint/Application.dll
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/Application.pdb
 /Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/ref/Application.dll
-/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/Application.sourcelink.json
-/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/Debug/net7.0/Applicat.44B5EDA2.Up2Date

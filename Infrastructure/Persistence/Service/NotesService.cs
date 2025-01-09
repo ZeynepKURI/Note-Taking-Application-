@@ -4,6 +4,7 @@ using Application.Interfaces;
 using AutoMapper;
 using Domain.Enitities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
 using Persistence.Repository;
 
@@ -107,6 +108,9 @@ namespace Persistence.Service
                 
             }
         }
+
+     
+      
     }
 }
 
