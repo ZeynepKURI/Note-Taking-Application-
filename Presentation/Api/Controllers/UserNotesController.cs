@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    [Route("api/user")]
+    [Route("api/user/notes")]
     [ApiController]
     public class UserNotesController : ControllerBase
     {
@@ -38,18 +38,45 @@ namespace Api.Controllers
                 var notes = await _notesService.GetNotesByUserIdAsync(userId);
                 return Ok(notes);
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }  
+
+        }
+
+        [HttpGet("id")]
+        public async Task<ActionResult<NoteDTO>> GetAllByIdNotes(int Id)
+        {
+
+            try
+            {
+                var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+
+                if(string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                {
+
+                    return Unauthorized("User Id not found");
+                }
+                
+
+                var Notes = await _notesService.GetNotesByIdAsync(Id);
+
+                if(Notes.UserId != userId)
+                {
+                    return Forbid("You are not author. ");
+                }
+
+                return Ok(Notes);
+            }
+
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
 
 
-
-
         }
-
-
-
 
 
 

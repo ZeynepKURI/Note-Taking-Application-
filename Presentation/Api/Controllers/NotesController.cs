@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    [Route("api/admin")]  // Controller için route tanımlaması
+    [Route("api/controller")]  // Controller için route tanımlaması
     [ApiController]
     public class NotesController : ControllerBase
     {
@@ -38,7 +38,7 @@ namespace Api.Controllers
 
 
         [HttpGet("id")]
-        public async Task<ActionResult> GetAllNotesById(int Id)
+        public async Task<ActionResult<NoteDTO>> GetAllNotesById(int Id)
         {
             try
             {
