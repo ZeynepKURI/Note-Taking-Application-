@@ -1,16 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+using Application.DTOs;
+using Application.Interfaces;
+using Domain.Enitities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    public class NotesController : Controller
+    [Route("api/[controller]")]  // Controller için route tanımlaması
+    [ApiController]
+    public class NotesController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly INotesService _noteService;
+
+        public NotesController(INotesService noteService)
         {
-            return View();
+            _noteService = noteService;
+        }
+
+        // Tüm notları getiren GET endpoint'i
+        [HttpGet("notes")]
+        public async Task<ActionResult<List<NoteDTO>>> GetAllNotes()
+        {
+            var notes = await _noteService.GetAllNotesAsync();
+            return Ok(notes);
         }
     }
 }
