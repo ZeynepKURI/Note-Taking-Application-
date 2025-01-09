@@ -2,12 +2,9 @@
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Enitities;
-
 using Microsoft.AspNetCore.Http;
 using Persistence.Repository;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace Persistence.Service
 {

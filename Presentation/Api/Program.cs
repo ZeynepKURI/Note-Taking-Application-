@@ -8,44 +8,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.InfrastructureServices(builder.Configuration);
 builder.Services.AddControllers();
-
-// Swagger/OpenAPI yapılandırmasını yalnızca bir kez ekleyin
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    // Swagger UI yapılandırması
+    // This is to generate the Default UI of Swagger Documentation
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
         Title = "ASP.NET 8 Web API",
         Description = "Authentication with JWT"
     });
-
-    // JWT Authorization için güvenlik yapılandırması
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-    });
-
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            Array.Empty<string>()
-        }
-    });
 });
+
+
 
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 

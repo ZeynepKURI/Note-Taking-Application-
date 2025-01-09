@@ -244,3 +244,6 @@
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/obj/Debug/net7.0/Api.pdb
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/obj/Debug/net7.0/Api.genruntimeconfig.cache
 /Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/obj/Debug/net7.0/ref/Api.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
