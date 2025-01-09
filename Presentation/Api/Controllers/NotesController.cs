@@ -2,6 +2,7 @@
 using Application.DTOs;
 using Application.Interfaces;
 using Domain.Enitities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -18,8 +19,9 @@ namespace Api.Controllers
         }
 
         // Tüm notları getiren GET endpoint'i
-        [HttpGet("notes")]
-        public async Task<ActionResult<List<NoteDTO>>> GetAllNotes()
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult> GetAllNotes()
         {
             var notes = await _noteService.GetAllNotesAsync();
             return Ok(notes);
