@@ -57,8 +57,10 @@ namespace Persistence.Repository
         {
             return await context.notes
                 .Where(n => n.UserId == userId)
-                .ToListAsync();
+               .ToListAsync();
         }
+
+       
     }
 }
 
