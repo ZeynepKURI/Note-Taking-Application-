@@ -3,6 +3,7 @@ using Application.DTOs;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Enitities;
+using Microsoft.AspNetCore.Http;
 using Persistence.Context;
 using Persistence.Repository;
 
@@ -16,16 +17,19 @@ namespace Persistence.Service
     {
         private readonly INotesRepo _notesRepo;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public NotesService(INotesRepo  notesRepo, IMapper mapper)
+        public NotesService(INotesRepo  notesRepo, IMapper mapper , IHttpContextAccessor httpContextAccessor)
         {
             _notesRepo = notesRepo;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
         }
 
 
         public async Task<List<NoteDTO>> GetAllNotesAsync()
         {
+ 
             var Notes = await _notesRepo.GetAllNotesAsync();
 
             // Entity'leri DTO'ya dönüştürme

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ywmh+XuWPHHiB6fNBw9hD+uqWAFJHNkg50agT3RbwuxRr2aTJEAsn6d513RDO6kEug+HmTXuer1XmHXJLvYtVg==",
+  "dgSpecHash": "KGWIpOH+ZJo=",
   "success": true,
   "projectFilePath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Presentation/Api/Api.csproj",
   "expectedPackageFiles": [
@@ -57,7 +57,11 @@
     "/Users/zeynepkuri/.nuget/packages/humanizer.core.zh-cn/2.14.1/humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/humanizer.core.zh-hans/2.14.1/humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/humanizer.core.zh-hant/2.14.1/humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.http/2.2.2/microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.razor.language/6.0.11/microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.webutilities/2.2.0/microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.build/17.3.2/microsoft.build.17.3.2.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.build.framework/17.3.2/microsoft.build.framework.17.3.2.nupkg.sha512",
@@ -90,8 +94,10 @@
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.dependencymodel/7.0.0/microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.logging/7.0.0/microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.0/microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.objectpool/2.2.0/microsoft.extensions.objectpool.2.2.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.net.http.headers/2.2.0/microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.net.stringtools/17.3.2/microsoft.net.stringtools.17.3.2.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -140,7 +146,7 @@
     "/Users/zeynepkuri/.nuget/packages/swashbuckle.aspnetcore.swaggergen/7.0.0/swashbuckle.aspnetcore.swaggergen.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/swashbuckle.aspnetcore.swaggerui/7.0.0/swashbuckle.aspnetcore.swaggerui.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.appcontext/4.3.0/system.appcontext.4.3.0.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/system.buffers/4.3.0/system.buffers.4.3.0.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.collections.concurrent/4.3.0/system.collections.concurrent.4.3.0.nupkg.sha512",
@@ -218,7 +224,10 @@
     "/Users/zeynepkuri/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
+    "/Users/zeynepkuri/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.20/microsoft.netcore.app.host.osx-arm64.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }
