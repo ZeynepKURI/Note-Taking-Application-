@@ -4,7 +4,10 @@ using AutoMapper;
 using Domain.Enitities;
 
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Persistence.Repository;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 namespace Persistence.Service
 {
@@ -14,24 +17,38 @@ namespace Persistence.Service
         private readonly INotesRepo _notesRepo;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
 
-        public NotesService(INotesRepo notesRepo, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public NotesService(INotesRepo notesRepo, IMapper mapper, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
             _notesRepo = notesRepo;
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
+        }
+
+        // Kullanıcı bilgilerini JWT'den alıyoruz
+        private int GetUserIdFromJwt()
+        {
+            var token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException("Token is missing");
+
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+            var userIdClaim = jsonToken?.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                throw new UnauthorizedAccessException("Invalid or missing user ID in token");
+
+            return userId;
         }
 
         // Tüm notları getiren metod (Admin için tüm notlar, kullanıcı için sadece kendi notları)
         public async Task<List<NoteDTO>> GetAllNotesAsync()
         {
-            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+            var userId = GetUserIdFromJwt();
             var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
-
-            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
-            {
-                throw new Exception("User ID is missing or invalid.");
-            }
 
             // Admin için tüm notları getir
             if (roles == "Admin")
@@ -51,13 +68,13 @@ namespace Persistence.Service
         public async Task<NoteDTO> GetNotesByIdAsync(int id)
         {
             var note = await _notesRepo.GetAllByIdAsync(id);
-            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+            var userId = GetUserIdFromJwt();
             var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
 
             if (note != null)
             {
                 // Admin değilse ve kullanıcı kendi notuna erişmeye çalışıyorsa, yetkilendirme kontrolü yapılır
-                if (roles != "Admin" && note.UserId != int.Parse(userIdClaim))
+                if (roles != "Admin" && note.UserId != userId)
                 {
                     throw new UnauthorizedAccessException("You can only access your own notes.");
                 }
@@ -73,12 +90,7 @@ namespace Persistence.Service
         // Yeni bir not ekleyen metod
         public async Task AddNotesAsync(NoteDTO noteDTO)
         {
-            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
-
-            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
-            {
-                throw new Exception("User ID is invalid.");
-            }
+            var userId = GetUserIdFromJwt();
 
             var note = _mapper.Map<Note>(noteDTO);
             note.UserId = userId; // Yeni notu kullanıcıya ata
@@ -95,12 +107,7 @@ namespace Persistence.Service
                 throw new Exception("Note not found");
             }
 
-            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
-
-            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
-            {
-                throw new Exception("User ID is missing or invalid.");
-            }
+            var userId = GetUserIdFromJwt();
 
             // Kullanıcı kendi notunu silebilir veya admin silme yetkisine sahip olmalı
             if (note.UserId == userId || _httpContextAccessor.HttpContext.User.IsInRole("Admin"))
@@ -123,12 +130,7 @@ namespace Persistence.Service
                 throw new Exception("Note not found");
             }
 
-            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
-
-            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
-            {
-                throw new Exception("User ID is missing or invalid.");
-            }
+            var userId = GetUserIdFromJwt();
 
             // Kullanıcı kendi notunu güncelleyebilir veya admin güncelleyebilir
             if (note.UserId == userId || _httpContextAccessor.HttpContext.User.IsInRole("Admin"))
@@ -145,13 +147,11 @@ namespace Persistence.Service
             }
         }
 
-        // Kullanıcıya ait notları getiren metod (yeni eklenen metod)
+        // Kullanıcıya ait notları getiren metod
         public async Task<List<NoteDTO>> GetNotesByUserIdAsync(int userId)
         {
             var notes = await _notesRepo.GetNotesByUserIdAsync(userId);
             return _mapper.Map<List<NoteDTO>>(notes);
         }
     }
-
-
 }

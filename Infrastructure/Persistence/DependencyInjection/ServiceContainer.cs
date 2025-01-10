@@ -47,8 +47,8 @@ namespace Persistence.DependencyInjection
             services.AddHttpContextAccessor();
             services.AddScoped<INotesRepo, NotesRepo>();
             services.AddScoped<INotesService, NotesService>();
-            services.AddScoped<IAuthService, AdminRepo>();
-            services.AddScoped<IAuthService, UserRepo>();
+            services.AddScoped<IAuthService, AuthService>();
+           
             return services;
         }
     }

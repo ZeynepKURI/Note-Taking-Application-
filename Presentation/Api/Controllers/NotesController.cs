@@ -1,8 +1,8 @@
-
 using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Api.Controllers
 {
@@ -17,10 +17,9 @@ namespace Api.Controllers
             _noteService = noteService;
         }
 
-        // Get all notes
+        // Tüm notları getir
         [HttpGet]
-        [Authorize]
-
+        [Authorize]  // Kimlik doğrulaması yapılmış kullanıcılar erişebilir
         public async Task<ActionResult> GetAllNotes()
         {
             try
@@ -34,14 +33,14 @@ namespace Api.Controllers
             }
         }
 
-        // Get a note by Id
+        // ID'ye göre bir notu getir
         [HttpGet("{id}")]
-        [Authorize]
-        public async Task<ActionResult<NoteDTO>> GetAllNotesById([FromQuery] int Id)
+        [Authorize]  // Kimlik doğrulaması yapılmış kullanıcılar erişebilir
+        public async Task<ActionResult<NoteDTO>> GetAllNotesById([FromRoute] int id)
         {
             try
             {
-                var notes = await _noteService.GetNotesByIdAsync(Id);
+                var notes = await _noteService.GetNotesByIdAsync(id);
                 return Ok(notes);
             }
             catch (Exception ex)
@@ -50,14 +49,15 @@ namespace Api.Controllers
             }
         }
 
-        // Update note
+        // Notu güncelle
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateNote(int Id, [FromBody] NoteDTO noteDTO)
+        [Authorize(Roles = "Admin")]  // Yalnızca Admin rolündeki kullanıcılar her notu güncelleyebilir
+        public async Task<ActionResult> UpdateNote(int id, [FromBody] NoteDTO noteDTO)
         {
             try
             {
-                await _noteService.UpdateNotesAsync(noteDTO, Id);
-                return Ok("Note updated successfully.");
+                await _noteService.UpdateNotesAsync(noteDTO, id);
+                return Ok("Not başarıyla güncellendi.");
             }
             catch (Exception ex)
             {
@@ -65,15 +65,15 @@ namespace Api.Controllers
             }
         }
 
-        // Add note
+        // Yeni bir not ekle
         [HttpPost]
-        [Authorize]
+        [Authorize]  // Yalnızca kimlik doğrulaması yapılmış kullanıcılar not ekleyebilir
         public async Task<ActionResult> AddNotes([FromBody] NoteDTO noteDTO)
         {
             try
             {
                 await _noteService.AddNotesAsync(noteDTO);
-                return Ok("Note added successfully.");
+                return Ok("Not başarıyla eklendi.");
             }
             catch (Exception ex)
             {
@@ -81,15 +81,15 @@ namespace Api.Controllers
             }
         }
 
-        // Bir notu silen endpoint
+        // Bir notu sil
         [HttpDelete("{id}")]
-        [Authorize]
-        public async Task<ActionResult> DeleteNotes(int Id)
+        [Authorize]  // Yalnızca kimlik doğrulaması yapılmış kullanıcılar not silebilir
+        public async Task<ActionResult> DeleteNotes(int id)
         {
             try
             {
-                await _noteService.DeleteNotesAsync(Id);
-                return Ok("Note deleted successfully.");
+                await _noteService.DeleteNotesAsync(id);
+                return Ok("Not başarıyla silindi.");
             }
             catch (Exception ex)
             {
@@ -97,5 +97,4 @@ namespace Api.Controllers
             }
         }
     }
-
 }
