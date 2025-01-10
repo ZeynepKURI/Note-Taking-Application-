@@ -19,7 +19,7 @@ namespace Api.Controllers
 
         // Tüm notları getir
         [HttpGet]
-        [Authorize]  // Kimlik doğrulaması yapılmış kullanıcılar erişebilir
+        [Authorize("Admin")]  // Kimlik doğrulaması yapılmış kullanıcılar erişebilir
         public async Task<ActionResult> GetAllNotes()
         {
             try
