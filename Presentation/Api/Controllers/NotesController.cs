@@ -1,6 +1,7 @@
 
 using Application.DTOs;
 using Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -19,6 +20,8 @@ namespace Api.Controllers
 
 
         [HttpGet]
+        [Authorize]
+
         public async Task<ActionResult> GetAllNotes()
         {
             {
@@ -40,6 +43,8 @@ namespace Api.Controllers
 
 
         [HttpGet("id")]
+        [Authorize]
+
         public async Task<ActionResult<NoteDTO>> GetAllNotesById(int Id)
         {
             try

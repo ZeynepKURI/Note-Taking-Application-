@@ -23,7 +23,7 @@ namespace Api.Controllers
         }
 
 
-        [HttpPost("register")]
+        [HttpPost("Register")]
 
         public async Task<ActionResult<LoginResponse>> RegisterUserDTO(RegisterDTO registerDTO)
         {
