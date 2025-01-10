@@ -47,22 +47,17 @@ namespace Persistence.Service
             }
         }
 
-
-
-
-
         // ID'ye göre bir notu getiren metod
         public async Task<NoteDTO> GetNotesByIdAsync(int id)
         {
             var note = await _notesRepo.GetAllByIdAsync(id);
+            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+            var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
 
             if (note != null)
             {
-                var userId = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
-                var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
-
                 // Admin değilse ve kullanıcı kendi notuna erişmeye çalışıyorsa, yetkilendirme kontrolü yapılır
-                if (roles != "Admin" && note.UserId != int.Parse(userId))
+                if (roles != "Admin" && note.UserId != int.Parse(userIdClaim))
                 {
                     throw new UnauthorizedAccessException("You can only access your own notes.");
                 }
@@ -157,4 +152,6 @@ namespace Persistence.Service
             return _mapper.Map<List<NoteDTO>>(notes);
         }
     }
+
+
 }

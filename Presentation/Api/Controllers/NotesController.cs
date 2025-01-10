@@ -19,7 +19,7 @@ namespace Api.Controllers
 
         // Get all notes
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
 
         public async Task<ActionResult> GetAllNotes()
         {
@@ -35,8 +35,8 @@ namespace Api.Controllers
         }
 
         // Get a note by Id
-        [HttpGet("notes/id")]
-        [Authorize(Roles = "Admin")]
+        [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<NoteDTO>> GetAllNotesById([FromQuery] int Id)
         {
             try
@@ -51,7 +51,7 @@ namespace Api.Controllers
         }
 
         // Update note
-        [HttpPut("id/{Id}")]
+        [HttpPut("{id}")]
         public async Task<ActionResult> UpdateNote(int Id, [FromBody] NoteDTO noteDTO)
         {
             try
@@ -67,6 +67,7 @@ namespace Api.Controllers
 
         // Add note
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> AddNotes([FromBody] NoteDTO noteDTO)
         {
             try
@@ -80,8 +81,9 @@ namespace Api.Controllers
             }
         }
 
-        // Delete note
-        [HttpDelete("id/{Id}")]
+        // Bir notu silen endpoint
+        [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> DeleteNotes(int Id)
         {
             try
