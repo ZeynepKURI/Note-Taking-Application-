@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "47WKAhg7Ax5GFchVWAE3tx4fOWeF82KPGFXYZcyzNQRw/FuDwXX9s34xan5oB0hpV48auB7dCALCjgVsbkcIfw==",
+  "dgSpecHash": "bNc8qNRQkiOSdRQeii+g9m1DviutTZMdaYeq6RpLSiIRvgP2fMQJrR0RKpKQASNXtyggQrrUBnBHG8MjJjI/BA==",
   "success": true,
   "projectFilePath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Persistence.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,9 @@
     "/Users/zeynepkuri/.nuget/packages/microsoft.entityframeworkcore.tools/7.0.0/microsoft.entityframeworkcore.tools.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.caching.memory/7.0.0/microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.configuration/7.0.0/microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.configuration.abstractions/7.0.0/microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.configuration.binder/7.0.0/microsoft.extensions.configuration.binder.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/microsoft.extensions.dependencymodel/7.0.0/microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
