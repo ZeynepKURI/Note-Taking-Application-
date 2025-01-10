@@ -2,9 +2,9 @@
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Enitities;
+
 using Microsoft.AspNetCore.Http;
 using Persistence.Repository;
-
 
 namespace Persistence.Service
 {
@@ -22,13 +22,16 @@ namespace Persistence.Service
             _httpContextAccessor = httpContextAccessor;
         }
 
-
-
         // Tüm notları getiren metod (Admin için tüm notlar, kullanıcı için sadece kendi notları)
         public async Task<List<NoteDTO>> GetAllNotesAsync()
         {
             var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
             var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                throw new Exception("User ID is missing or invalid.");
+            }
 
             // Admin için tüm notları getir
             if (roles == "Admin")
@@ -39,17 +42,12 @@ namespace Persistence.Service
             else
             {
                 // Kullanıcı için sadece kendi notlarını getir
-                if (!string.IsNullOrEmpty(userIdClaim) && int.TryParse(userIdClaim, out int userId))
-                {
-                    var notes = await _notesRepo.GetNotesByUserIdAsync(userId);
-                    return _mapper.Map<List<NoteDTO>>(notes);
-                }
-                else
-                {
-                    throw new Exception("User ID is missing or invalid.");
-                }
+                var notes = await _notesRepo.GetNotesByUserIdAsync(userId);
+                return _mapper.Map<List<NoteDTO>>(notes);
             }
         }
+
+
 
 
 
@@ -59,15 +57,16 @@ namespace Persistence.Service
             var note = await _notesRepo.GetAllByIdAsync(id);
 
             if (note != null)
-
             {
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
                 var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
 
-                if(roles!= "Admin"&& note.UserId!= int.Parse(userId))
+                // Admin değilse ve kullanıcı kendi notuna erişmeye çalışıyorsa, yetkilendirme kontrolü yapılır
+                if (roles != "Admin" && note.UserId != int.Parse(userId))
                 {
                     throw new UnauthorizedAccessException("You can only access your own notes.");
                 }
+
                 return _mapper.Map<NoteDTO>(note);
             }
             else
@@ -76,71 +75,78 @@ namespace Persistence.Service
             }
         }
 
-
-
-
         // Yeni bir not ekleyen metod
         public async Task AddNotesAsync(NoteDTO noteDTO)
         {
+            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
 
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value; /// Kullanıcı ID'sini al
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                throw new Exception("User ID is invalid.");
+            }
+
             var note = _mapper.Map<Note>(noteDTO);
-
-
-            note.UserId = int.Parse(userId); // Yeni notu kullanıcıya at
-
+            note.UserId = userId; // Yeni notu kullanıcıya ata
             await _notesRepo.AddNotesAsync(note);
         }
-
-
-
 
         // Bir notu silen metod
         public async Task DeleteNotesAsync(int id)
         {
             var note = await _notesRepo.GetAllByIdAsync(id);
-            if (note != null)
+
+            if (note == null)
             {
-                var userId = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+                throw new Exception("Note not found");
+            }
 
+            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
 
-                // Eğer kullanıcı kendi notunu silmeye çalışıyorsa veya adminse, silme işlemi yapılabilir
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                throw new Exception("User ID is missing or invalid.");
+            }
 
-                if (note.UserId == int.Parse(userId) || _httpContextAccessor.HttpContext.User.IsInRole("Admib"))
-                {
-                    await _notesRepo.DeleteNotesAsync(id);
-                }
+            // Kullanıcı kendi notunu silebilir veya admin silme yetkisine sahip olmalı
+            if (note.UserId == userId || _httpContextAccessor.HttpContext.User.IsInRole("Admin"))
+            {
+                await _notesRepo.DeleteNotesAsync(id);
             }
             else
             {
-                throw new UnauthorizedAccessException("Note not found");
+                throw new UnauthorizedAccessException("You can only delete your own notes.");
             }
         }
-
-
-
 
         // Bir notu güncelleyen metod
         public async Task UpdateNotesAsync(NoteDTO noteDTO, int id)
         {
             var note = await _notesRepo.GetAllByIdAsync(id);
-            if (note != null)
+
+            if (note == null)
             {
-                var userId = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+                throw new Exception("Note not found");
+            }
 
-                // Eğer kullanıcı kendi notunu güncellemeye çalışıyorsa veya adminse, güncelleme yapılabilir
-                if (note.UserId == int.Parse(userId) || _httpContextAccessor.HttpContext.User.IsInRole("Admin"))
-                {
-                    note.Title = noteDTO.Title;
-                    note.Content = noteDTO.Content;
-                    note.CreatedAt = noteDTO.CreatedAt;
+            var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
 
-                    await _notesRepo.UpdateNotesAsync(note);
-                }
-                else
-                {
-                    throw new UnauthorizedAccessException("You can only update your own notes.");
-                }
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                throw new Exception("User ID is missing or invalid.");
+            }
+
+            // Kullanıcı kendi notunu güncelleyebilir veya admin güncelleyebilir
+            if (note.UserId == userId || _httpContextAccessor.HttpContext.User.IsInRole("Admin"))
+            {
+                note.Title = noteDTO.Title;
+                note.Content = noteDTO.Content;
+                note.CreatedAt = noteDTO.CreatedAt;
+
+                await _notesRepo.UpdateNotesAsync(note);
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("You can only update your own notes.");
             }
         }
 

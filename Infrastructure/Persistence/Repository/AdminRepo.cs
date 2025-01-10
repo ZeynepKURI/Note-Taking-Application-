@@ -56,7 +56,8 @@ namespace Persistence.Repository
             {
                 new Claim(ClaimTypes.NameIdentifier, admins.Id.ToString()),
                 new Claim(ClaimTypes.Name, admins.Username!),
-                new Claim(ClaimTypes.Email, admins.Email!)
+                new Claim(ClaimTypes.Email, admins.Email!),
+                new Claim(ClaimTypes.Role, "Admin")
             };
 
             var token = new JwtSecurityToken(

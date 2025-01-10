@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    [Route("api/controller")]  // Controller için route tanımlaması
+    [Route("api/[controller]")]
     [ApiController]
     public class NotesController : ControllerBase
     {
@@ -17,35 +17,27 @@ namespace Api.Controllers
             _noteService = noteService;
         }
 
-
-
+        // Get all notes
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
 
         public async Task<ActionResult> GetAllNotes()
         {
+            try
             {
-                try
-                {
-                    var notes = await _noteService.GetAllNotesAsync();
-                    return Ok(notes);
-
-
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
+                var notes = await _noteService.GetAllNotesAsync();
+                return Ok(notes);
             }
-        
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-
-
-        [HttpGet("id")]
-        [Authorize]
-
-        public async Task<ActionResult<NoteDTO>> GetAllNotesById(int Id)
+        // Get a note by Id
+        [HttpGet("notes/id")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<NoteDTO>> GetAllNotesById([FromQuery] int Id)
         {
             try
             {
@@ -58,15 +50,14 @@ namespace Api.Controllers
             }
         }
 
-
-
-        [HttpPut("id")]
+        // Update note
+        [HttpPut("id/{Id}")]
         public async Task<ActionResult> UpdateNote(int Id, [FromBody] NoteDTO noteDTO)
         {
             try
             {
                 await _noteService.UpdateNotesAsync(noteDTO, Id);
-                return Ok("Note updated succesfully.");
+                return Ok("Note updated successfully.");
             }
             catch (Exception ex)
             {
@@ -74,36 +65,35 @@ namespace Api.Controllers
             }
         }
 
+        // Add note
         [HttpPost]
         public async Task<ActionResult> AddNotes([FromBody] NoteDTO noteDTO)
         {
             try
             {
                 await _noteService.AddNotesAsync(noteDTO);
-                return Ok("Note Added succesfully.");
-
+                return Ok("Note added successfully.");
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
-
             }
         }
 
-        [HttpDelete("id")]
-        public async Task<ActionResult>DeleteNotes(int Id)
+        // Delete note
+        [HttpDelete("id/{Id}")]
+        public async Task<ActionResult> DeleteNotes(int Id)
         {
             try
             {
                 await _noteService.DeleteNotesAsync(Id);
-                return Ok("Note Delete Succesfully.");
+                return Ok("Note deleted successfully.");
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-
     }
+
 }

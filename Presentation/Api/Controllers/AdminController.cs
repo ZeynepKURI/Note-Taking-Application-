@@ -15,7 +15,7 @@ namespace Api.Controllers
             this.authService = _authService;
         }
 
-        [HttpPost("Login")]
+        [HttpPost("login")]
         public async Task<ActionResult<LoginResponse>> LoginUserIn(LoginDTO loginDTO)
         {
             var result = await authService.LoginAsync(loginDTO);
@@ -23,7 +23,7 @@ namespace Api.Controllers
         }
 
 
-        [HttpPost("Register")]
+        [HttpPost("register")]
 
         public async Task<ActionResult<LoginResponse>> RegisterUserDTO(RegisterDTO registerDTO)
         {
