@@ -40,6 +40,7 @@ namespace Api.Controllers
         {
             try
             {
+                
                 var notes = await _noteService.GetNotesByIdAsync(id);
                 return Ok(notes);
             }
@@ -67,7 +68,7 @@ namespace Api.Controllers
 
         // Yeni bir not ekle
         [HttpPost]
-        [Authorize]  // Yalnızca kimlik doğrulaması yapılmış kullanıcılar not ekleyebilir
+        [Authorize(Roles = "Admin")]  // Yalnızca kimlik doğrulaması yapılmış kullanıcılar not ekleyebilir
         public async Task<ActionResult> AddNotes([FromBody] NoteDTO noteDTO)
         {
             try

@@ -107,7 +107,13 @@ namespace Api.Controllers
             try
             {
                 var userId =await _notesService.GetNotesByUserIdAsync(UserId);
-                return Ok("Ok");
+                if(userId!=null)
+                {
+                    return Ok(userId);
+
+                }
+
+                return Ok(" ok");
             }
             catch (Exception ex)
             {
