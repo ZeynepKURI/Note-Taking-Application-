@@ -1,11 +1,12 @@
 using Application.DTOs;
 using Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace Api.Controllers
 {
-    [Route("api/user/notes")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserNotesController : ControllerBase
     {
@@ -19,7 +20,8 @@ namespace Api.Controllers
         }
 
         // Get all notes for the logged-in user
-        [HttpGet]
+     /*   [HttpGet]
+        [Authorize("User")]
         public async Task<ActionResult<List<NoteDTO>>> GetUserNotes()
         {
             try
@@ -41,7 +43,7 @@ namespace Api.Controllers
         }
 
         // Get a specific note by ID for the logged-in user
-        [HttpGet("{id}")]
+      [HttpGet("{id}")]
         public async Task<ActionResult<NoteDTO>> GetAllByIdNotes(int id)
         {
             try
@@ -70,8 +72,8 @@ namespace Api.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-            }
-        }
+            } 
+        }*/
 
         // Create a new note for the logged-in user
         [HttpPost]
@@ -94,6 +96,24 @@ namespace Api.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult<List<NoteDTO>>> Getnotes(int UserId)
+
+        {
+
+            try
+            {
+                var userId =await _notesService.GetNotesByUserIdAsync(UserId);
+                return Ok("Ok");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+         
         }
     }
 }

@@ -46,7 +46,6 @@ builder.Services.AddSwaggerGen(swagger =>
         }
     });
 });
-builder.Services.AddAuthorization();
 
 
 

@@ -19,7 +19,7 @@ namespace Api.Controllers
 
         // Tüm notları getir
         [HttpGet]
-        [Authorize("Admin")]  // Kimlik doğrulaması yapılmış kullanıcılar erişebilir
+        [Authorize(Roles = "Admin")]// Kimlik doğrulaması yapılmış kullanıcılar erişebilir
         public async Task<ActionResult> GetAllNotes()
         {
             try
@@ -36,7 +36,7 @@ namespace Api.Controllers
         // ID'ye göre bir notu getir
         [HttpGet("{id}")]
         [Authorize]  // Kimlik doğrulaması yapılmış kullanıcılar erişebilir
-        public async Task<ActionResult<NoteDTO>> GetAllNotesById([FromRoute] int id)
+        public async Task<ActionResult<NoteDTO>> GetAllNotesById([FromRoute] int id) //[FromRoute], route'dan gelen parametreleri açık bir şekilde metot parametrelerine bağlamanızı sağlar. 
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Api.Controllers
         // Notu güncelle
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]  // Yalnızca Admin rolündeki kullanıcılar her notu güncelleyebilir
-        public async Task<ActionResult> UpdateNote(int id, [FromBody] NoteDTO noteDTO)
+        public async Task<ActionResult> UpdateNote(int id, [FromBody] NoteDTO noteDTO)    // JSON veya başka bir veri formatında olan veriyi, methoddaki parametreye bağlamaya yarar.
         {
             try
             {
