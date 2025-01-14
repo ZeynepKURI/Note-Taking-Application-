@@ -51,10 +51,7 @@ DI, .NET Core'un yerleşik özelliklerinden biridir. Katmanlar arasında bağım
 ## Kullanım
 Projenizi çalıştırmak için şu adımları izleyin:
 Veritabanı Bağlantısını Yapılandırın: appsettings.json dosyasındaki bağlantı dizesini kendi veritabanınıza göre ayarlayın.
-Uygulamayı Çalıştırın:
-```bash
-    dotnet run
-     API Son Noktalarını Test Edin:
+
 
 - **POST /api/notes: Yeni not ekler.
 - **GET /api/notes: Tüm notları listeler.
