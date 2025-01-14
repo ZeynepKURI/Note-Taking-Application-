@@ -1,30 +1,19 @@
 ﻿<Properties StartupConfiguration="{0283267E-C30A-474D-9A36-3F8C3F44F4DF}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" relfile="Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" line="29" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Presentation/Api/Controllers/UserNotesController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Persistence/Service/NotesService.cs">
     <Files>
-      <File FileName="Core/a/Interfaces/INotesService.cs" Line="9" Column="5" />
-      <File FileName="Presentation/Api/Controllers/UserNotesController.cs" Line="39" Column="26" />
-      <File FileName="Infrastructure/Persistence/Service/NotesService.cs" Line="5" Column="1" />
-      <File FileName="Core/Domain/Enitities/IUser.cs" Line="1" Column="1" />
-      <File FileName="Presentation/Api/Program.cs" Line="50" Column="1" />
-      <File FileName="Presentation/Api/appsettings.json" Line="17" Column="2" />
-      <File FileName="Presentation/Api/Controllers/AdminController.cs" Line="34" Column="2" />
-      <File FileName="Core/Domain/Enitities/Admin.cs" Line="20" Column="1" />
-      <File FileName="Infrastructure/Persistence/Context/AppDbContext.cs" />
-      <File FileName="Infrastructure/Persistence/Repository/NotesRepo.cs" Line="47" Column="1" />
-      <File FileName="Presentation/Api/Controllers/UserController.cs" Line="31" Column="56" />
-      <File FileName="Infrastructure/Persistence/Repository/INotesRepo.cs" Line="1" Column="1" />
-      <File FileName="Core/a/DTOs/NoteDTO.cs" Line="1" Column="2" />
-      <File FileName="Core/a/Interfaces/IAuthService.cs" Line="16" Column="1" />
-      <File FileName="Infrastructure/Persistence/Repository/AuthService.cs" Line="136" Column="1" />
-      <File FileName="Infrastructure/Persistence/DependencyInjection/ServiceContainer.cs" Line="50" Column="57" />
-      <File FileName="Presentation/Api/Controllers/NotesController.cs" Line="34" Column="10" />
-      <File FileName="Presentation/Api/Controllers/kjController.cs" Line="27" Column="1" />
+      <File FileName="Core/a/Interfaces/INotesService.cs" Line="14" Column="62" />
+      <File FileName="Presentation/Api/Controllers/UserNotesController.cs" Line="114" Column="18" />
+      <File FileName="Presentation/Api/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Persistence/Service/NotesService.cs" Line="30" Column="45" />
+      <File FileName="Presentation/Api/Program.cs" Line="49" Column="1" />
+      <File FileName="Presentation/Api/appsettings.json" Line="1" Column="1" />
+      <File FileName="Infrastructure/Persistence/Repository/NotesRepo.cs" Line="1" Column="1" />
+      <File FileName="Core/a/DTOs/NoteDTO.cs" Line="1" Column="1" />
+      <File FileName="Core/a/Interfaces/IAuthService.cs" Line="1" Column="1" />
+      <File FileName="Presentation/Api/Controllers/NotesController.cs" Line="82" Column="14" />
+      <File FileName="Presentation/Api/Controllers/AdminController.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Persistence/Repository/AuthService.cs" Line="59" Column="51" />
+      <File FileName="Core/Domain/Enitities/Note.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -39,17 +28,16 @@
                 <Node name="Enitities" expanded="True" />
               </Node>
             </Node>
-            <Node name="Infrastructure">
-              <Node name="Persistence">
-                <Node name="Context" expanded="True" />
-                <Node name="DependencyInjection" expanded="True" />
+            <Node name="Infrastructure" expanded="True">
+              <Node name="Persistence" expanded="True">
                 <Node name="Repository" expanded="True" />
                 <Node name="Service" expanded="True" />
               </Node>
             </Node>
             <Node name="Presentation">
-              <Node name="Api" expanded="True">
+              <Node name="Api">
                 <Node name="Controllers" expanded="True" />
+                <Node name="Properties" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -57,7 +45,13 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" relfile="Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" line="29" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
