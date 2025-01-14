@@ -10,7 +10,7 @@ namespace Application.Mapping
         public MappingProfile()
         {
             // Entity -> DTO dönüşümü
-            CreateMap<Note, NoteDTO>().ReverseMap();
+            CreateMap<Note, NoteDTO>().ReverseMap(); // TAM TERSİNE DE DÖNÜŞTÜRÜR.
         }
     }
 }
