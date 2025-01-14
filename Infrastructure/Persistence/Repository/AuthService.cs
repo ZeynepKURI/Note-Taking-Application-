@@ -1,16 +1,14 @@
 ﻿using Application.DTOs;
 using Application.Interfaces;
 using Domain.Enitities;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Persistence.Context;
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Persistence.Service
 {

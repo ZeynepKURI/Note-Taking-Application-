@@ -48,8 +48,13 @@ namespace Persistence.DependencyInjection
             services.AddScoped<INotesRepo, NotesRepo>();
             services.AddScoped<INotesService, NotesService>();
             services.AddScoped<IAuthService, AuthService>();
-           
+           // sıngleton
             return services;
         }
     }
 }
+
+
+
+//fluet validation kullan
+//cqrs pattern 
