@@ -11,7 +11,7 @@ namespace Persistence.Repository
 		Task<Note> GetAllByIdAsync(int Id);
 		Task AddNotesAsync(Note note);
 		Task UpdateNotesAsync(Note note);
-		Task DeleteNotesAsync(int Id);
+		Task DeleteNotesAsync(int UserId);
         Task<List<Note>> GetNotesByUserIdAsync(int userId);  // Kullanıcıya özel notları getiren metot
 
     }

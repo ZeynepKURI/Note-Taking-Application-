@@ -42,7 +42,58 @@ namespace Api.Controllers
             }
         }
 
-        public async Task<IActionResult> UpdateNotes()
+        [HttpPut("{UserId}")]
+        public async Task<ActionResult> UpdateNotes(int Id, [FromBody] NoteDTO noteDTO)
+        {
+            try
+            {
+                // Kullanıcı kimliğini doğrula
+                var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+
+                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                {
+                    return Unauthorized("User ID not found or invalid");
+                }
+
+                // Notun var olup olmadığını ve bu kullanıcıya ait olup olmadığını kontrol et
+                var existingNote = await _notesService.GetNotesByIdAsync(Id);
+                if (existingNote == null)
+                {
+                    return NotFound("Note not found");
+                }
+
+                if (existingNote.UserId!= userId)
+                {
+                    return Forbid("You are not authorized to update this note");
+                }
+
+                // Güncellemeyi gerçekleştir
+                noteDTO.Id= Id; // Güncellenen notun ID'sini ayarla
+                noteDTO.UserId = userId; // Kullanıcı ID'sini sabitle
+                await _notesService.UpdateNotesAsync(noteDTO,Id);
+
+                return Ok("Note updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        public async Task<IActionResult> DeleteAsync(int Id)
+        {
+            try
+            {
+                await _notesService.DeleteNotesAsync(Id);
+
+                    return Ok("Delete succesfull");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+            
 
         [HttpGet]
         public async Task<ActionResult<List<NoteDTO>>> Getnotes(int UserId)

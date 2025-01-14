@@ -98,9 +98,9 @@ namespace Persistence.Service
         }
 
         // Bir notu silen metod
-        public async Task DeleteNotesAsync(int id)
+        public async Task DeleteNotesAsync(int UserId)
         {
-            var note = await _notesRepo.GetAllByIdAsync(id);
+            var note = await _notesRepo.GetAllByIdAsync(UserId);
 
             if (note == null)
             {
@@ -112,7 +112,7 @@ namespace Persistence.Service
             // Kullanıcı kendi notunu silebilir veya admin silme yetkisine sahip olmalı
             if (note.UserId == userId || _httpContextAccessor.HttpContext.User.IsInRole("Admin"))
             {
-                await _notesRepo.DeleteNotesAsync(id);
+                await _notesRepo.DeleteNotesAsync(UserId);
             }
             else
             {
@@ -121,9 +121,9 @@ namespace Persistence.Service
         }
 
         // Bir notu güncelleyen metod
-        public async Task UpdateNotesAsync(NoteDTO noteDTO, int id)
+        public async Task UpdateNotesAsync(NoteDTO noteDTO, int UserId)
         {
-            var note = await _notesRepo.GetAllByIdAsync(id);
+            var note = await _notesRepo.GetAllByIdAsync(UserId);
 
             if (note == null)
             {

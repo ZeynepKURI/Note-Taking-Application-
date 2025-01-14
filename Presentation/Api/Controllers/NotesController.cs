@@ -50,52 +50,6 @@ namespace Api.Controllers
             }
         }
 
-        // Notu güncelle
-        [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]  // Yalnızca Admin rolündeki kullanıcılar her notu güncelleyebilir
-        public async Task<ActionResult> UpdateNote(int id, [FromBody] NoteDTO noteDTO)    // JSON veya başka bir veri formatında olan veriyi, methoddaki parametreye bağlamaya yarar.
-        {
-            try
-            {
-                await _noteService.UpdateNotesAsync(noteDTO, id);
-                return Ok("Not başarıyla güncellendi.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        // Yeni bir not ekle
-        [HttpPost]
-        [Authorize(Roles = "Admin")]  // Yalnızca kimlik doğrulaması yapılmış kullanıcılar not ekleyebilir
-        public async Task<ActionResult> AddNotes([FromBody] NoteDTO noteDTO)
-        {
-            try
-            {
-                await _noteService.AddNotesAsync(noteDTO);
-                return Ok("Not başarıyla eklendi.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        // Bir notu sil
-        [HttpDelete("{id}")]
-        [Authorize]  // Yalnızca kimlik doğrulaması yapılmış kullanıcılar not silebilir
-        public async Task<ActionResult> DeleteNotes(int id)
-        {
-            try
-            {
-                await _noteService.DeleteNotesAsync(id);
-                return Ok("Not başarıyla silindi.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+       
     }
 }
