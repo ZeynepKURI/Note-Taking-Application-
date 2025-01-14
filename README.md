@@ -53,10 +53,10 @@ Projenizi çalıştırmak için şu adımları izleyin:
 Veritabanı Bağlantısını Yapılandırın: appsettings.json dosyasındaki bağlantı dizesini kendi veritabanınıza göre ayarlayın.
 
 
-- **POST /api/notes: Yeni not ekler.
-- **GET /api/notes: Tüm notları listeler.
-- **PUT /api/notes/{id}: Mevcut bir notu günceller.
-- **DELETE /api/notes/{id}: Bir notu siler.
+- **POST **: /api/notes: Yeni not ekler.
+- **GET **: /api/notes: Tüm notları listeler.
+- **PUT**:  /api/notes/{id}: Mevcut bir notu günceller.
+- **DELETE **: /api/notes/{id}: Bir notu siler.
 Katkı Sağlamak
 Bu projeye katkıda bulunmak isterseniz, lütfen bir pull request gönderin veya bir issue açın.
 
