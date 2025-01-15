@@ -40,6 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Domain\Domain.csproj" />
-    <ProjectReference Include="..\..\Core\a\Application.csproj" />
+    <ProjectReference Include="..\..\Core\Application\Application.csproj" />
   </ItemGroup>
 </Project>

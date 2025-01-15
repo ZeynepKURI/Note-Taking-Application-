@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v7.0": {
       "Api/1.0.0": {
         "dependencies": {
-          "Application": "1.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.0",
@@ -2487,8 +2486,7 @@
       "Application/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
-          "Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.0"
+          "Domain": "1.0.0"
         },
         "runtime": {
           "Application.dll": {}

@@ -890,8 +890,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
-          "Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.0"
+          "Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -2563,8 +2562,8 @@
     },
     "Application/1.0.0": {
       "type": "project",
-      "path": "../../Core/a/Application.csproj",
-      "msbuildProject": "../../Core/a/Application.csproj"
+      "path": "../../Core/Application/Application.csproj",
+      "msbuildProject": "../../Core/Application/Application.csproj"
     },
     "Domain/1.0.0": {
       "type": "project",
@@ -2616,8 +2615,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj": {
-              "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj"
+            "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj": {
+              "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj"
             },
             "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/Domain.csproj": {
               "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/Domain.csproj"

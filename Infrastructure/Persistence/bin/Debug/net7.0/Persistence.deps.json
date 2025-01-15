@@ -427,8 +427,7 @@
       "Application/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
-          "Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.0"
+          "Domain": "1.0.0"
         },
         "runtime": {
           "Application.dll": {}

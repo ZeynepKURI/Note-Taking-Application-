@@ -4,14 +4,14 @@
     "/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Persistence.csproj": {}
   },
   "projects": {
-    "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj": {
+    "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj",
+        "projectUniqueName": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj",
         "projectName": "Application",
-        "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj",
+        "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj",
         "packagesPath": "/Users/zeynepkuri/.nuget/packages/",
-        "outputPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/obj/",
+        "outputPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/zeynepkuri/.nuget/NuGet/NuGet.Config"
@@ -44,10 +44,6 @@
           "targetAlias": "net7.0",
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.0, )"
             }
@@ -149,8 +145,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj": {
-                "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/a/Application.csproj"
+              "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj": {
+                "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Application/Application.csproj"
               },
               "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/Domain.csproj": {
                 "projectPath": "/Users/zeynepkuri/Projects/Note-Taking-Application/Core/Domain/Domain.csproj"

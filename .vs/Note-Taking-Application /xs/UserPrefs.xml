@@ -3,26 +3,8 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Note-Taking-Application " expanded="True">
-            <Node name="Core" expanded="True">
-              <Node name="Application" expanded="True">
-                <Node name="Dependencies" expanded="True">
-                  <Node name="PackageDependencies" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Domain" expanded="True">
-                <Node name="Dependencies" expanded="True">
-                  <Node name="FrameworkReferences" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-            <Node name="Presentation">
-              <Node name="Api">
-                <Node name="Dependencies" expanded="True">
-                  <Node name="PackageDependencies" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
+          <Node name="Note-Taking-Application ">
+            <Node name="Core" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -36,5 +18,6 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.Core.Application FirstBuild="True" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
