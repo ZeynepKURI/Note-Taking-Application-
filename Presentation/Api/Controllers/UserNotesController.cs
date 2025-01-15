@@ -2,6 +2,7 @@ using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Persistence.Service;
 
 
 namespace Api.Controllers
@@ -21,18 +22,15 @@ namespace Api.Controllers
 
         // Create a new note for the logged-in user
         [HttpPost]
+
+        [Authorize(Roles = "User")]
         public async Task<ActionResult> CreateNotes([FromBody] NoteDTO noteDTO)
         {
             try
             {
-                var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
+                
 
-                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
-                {
-                    return Unauthorized("User ID not found or invalid");
-                }
-
-                noteDTO.UserId = userId;  // Ensure the note is created with the logged-in user ID
+       
                 await _notesService.AddNotesAsync(noteDTO);
                 return Ok("Note created successfully");
             }
@@ -42,34 +40,13 @@ namespace Api.Controllers
             }
         }
 
-        [HttpPut("{UserId}")]
+        [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult> UpdateNotes(int Id, [FromBody] NoteDTO noteDTO)
         {
             try
             {
-                // Kullanıcı kimliğini doğrula
-                var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst("sub")?.Value;
-
-                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
-                {
-                    return Unauthorized("User ID not found or invalid");
-                }
-
-                // Notun var olup olmadığını ve bu kullanıcıya ait olup olmadığını kontrol et
-                var existingNote = await _notesService.GetNotesByIdAsync(Id);
-                if (existingNote == null)
-                {
-                    return NotFound("Note not found");
-                }
-
-                if (existingNote.UserId!= userId)
-                {
-                    return Forbid("You are not authorized to update this note");
-                }
-
-                // Güncellemeyi gerçekleştir
-                noteDTO.Id= Id; // Güncellenen notun ID'sini ayarla
-                noteDTO.UserId = userId; // Kullanıcı ID'sini sabitle
+           
                 await _notesService.UpdateNotesAsync(noteDTO,Id);
 
                 return Ok("Note updated successfully");
@@ -80,23 +57,33 @@ namespace Api.Controllers
             }
         }
 
-        public async Task<IActionResult> DeleteAsync(int Id)
+        [HttpGet("{Id}")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> DeleteAsync(int Id, int UserId)
         {
             try
             {
-                await _notesService.DeleteNotesAsync(Id);
+             
 
-                    return Ok("Delete succesfull");
+                // Servis katmanında kontrol yapıyoruz
+                await _notesService.DeleteNotesAsync(Id, UserId);
+
+                return NoContent();  // Silme işlemi başarılı, geri dönüş yok
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("You can only delete your own notes.");  // Yetkisiz erişim hatası
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.Message);  // Diğer hatalar
             }
         }
-            
+
 
         [HttpGet]
-        public async Task<ActionResult<List<NoteDTO>>> Getnotes(int UserId)
+        [Authorize(Roles = "User")]
+        public async Task<ActionResult<List<NoteDTO>>> GetNotes(int UserId)
 
         {
 

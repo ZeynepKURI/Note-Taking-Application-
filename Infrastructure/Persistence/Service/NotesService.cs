@@ -4,6 +4,7 @@ using AutoMapper;
 using Domain.Enitities;
 
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Persistence.Repository;
 using System.IdentityModel.Tokens.Jwt;
@@ -44,11 +45,22 @@ namespace Persistence.Service
             return userId;
         }
 
+
+        // Kullanıcının rolünü belirler
+        private string GetUserRole()
+        {
+            return _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
+        }
+
+
+
+
+
         // Tüm notları getiren metod (Admin için tüm notlar, kullanıcı için sadece kendi notları)
         public async Task<List<NoteDTO>> GetAllNotesAsync()
         {
             var userId = GetUserIdFromJwt();
-            var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
+            var roles = GetUserRole();
 
             // Admin için tüm notları getir
             if (roles == "Admin")
@@ -64,12 +76,17 @@ namespace Persistence.Service
             }
         }
 
+
+
+
+
+
         // ID'ye göre bir notu getiren metod
         public async Task<NoteDTO> GetNotesByIdAsync(int id)
         {
             var note = await _notesRepo.GetAllByIdAsync(id);
             var userId = GetUserIdFromJwt();
-            var roles = _httpContextAccessor.HttpContext.User.FindFirst("role")?.Value;
+            var roles = GetUserRole();
 
             if (note != null)
             {
@@ -87,20 +104,36 @@ namespace Persistence.Service
             }
         }
 
+
+
+
         // Yeni bir not ekleyen metod
         public async Task AddNotesAsync(NoteDTO noteDTO)
         {
             var userId = GetUserIdFromJwt();
 
+            if (userId == null)
+            {
+                throw new UnauthorizedAccessException("User ID not found in JWT.");
+            }
+
+            // Not verisini domain modeline dönüştür
             var note = _mapper.Map<Note>(noteDTO);
-            note.UserId = userId; // Yeni notu kullanıcıya ata
+            note.UserId = userId; // Kullanıcı kimliğini ata
+            note.CreatedAt = DateTime.UtcNow; // Oluşturma tarihini ata
+            note.UpdatedAt = null; // İlk oluşturulduğunda güncellenme tarihi yok
+
+            // Notu veritabanına ekle
             await _notesRepo.AddNotesAsync(note);
+
+        
         }
 
-        // Bir notu silen metod
-        public async Task DeleteNotesAsync(int UserId)
+
+
+        public async Task DeleteNotesAsync(int Id, int UserId)
         {
-            var note = await _notesRepo.GetAllByIdAsync(UserId);
+            var note = await _notesRepo.GetAllByIdAsync(Id);
 
             if (note == null)
             {
@@ -110,9 +143,9 @@ namespace Persistence.Service
             var userId = GetUserIdFromJwt();
 
             // Kullanıcı kendi notunu silebilir veya admin silme yetkisine sahip olmalı
-            if (note.UserId == userId || _httpContextAccessor.HttpContext.User.IsInRole("Admin"))
+            if (note.UserId != userId && GetUserRole() != "User")
             {
-                await _notesRepo.DeleteNotesAsync(UserId);
+                await _notesRepo.DeleteNotesAsync(Id);
             }
             else
             {
@@ -120,10 +153,14 @@ namespace Persistence.Service
             }
         }
 
+
+
+
+
         // Bir notu güncelleyen metod
-        public async Task UpdateNotesAsync(NoteDTO noteDTO, int UserId)
+        public async Task UpdateNotesAsync(NoteDTO noteDTO, int Id)
         {
-            var note = await _notesRepo.GetAllByIdAsync(UserId);
+            var note = await _notesRepo.GetAllByIdAsync(Id);
 
             if (note == null)
             {
@@ -133,13 +170,15 @@ namespace Persistence.Service
             var userId = GetUserIdFromJwt();
 
             // Kullanıcı kendi notunu güncelleyebilir veya admin güncelleyebilir
-            if (note.UserId == userId || _httpContextAccessor.HttpContext.User.IsInRole("Admin"))
+            if (note.UserId != userId && GetUserRole() != "User")
+
             {
                 note.Title = noteDTO.Title;
                 note.Content = noteDTO.Content;
                 note.CreatedAt = noteDTO.CreatedAt;
 
                 await _notesRepo.UpdateNotesAsync(note);
+           
             }
             else
             {
@@ -147,11 +186,23 @@ namespace Persistence.Service
             }
         }
 
+
+
+
+
+
         // Kullanıcıya ait notları getiren metod
-        public async Task<List<NoteDTO>> GetNotesByUserIdAsync(int userId)
+        public async Task<List<NoteDTO>> GetNotesByUserIdAsync(int Id)
         {
-            var notes = await _notesRepo.GetNotesByUserIdAsync(userId);
+            var notes = await _notesRepo.GetNotesByUserIdAsync(Id);
             return _mapper.Map<List<NoteDTO>>(notes);
         }
+
+        public Task DeleteNotesAsync(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+      
     }
 }

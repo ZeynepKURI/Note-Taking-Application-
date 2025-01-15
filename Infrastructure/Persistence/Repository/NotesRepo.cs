@@ -52,9 +52,9 @@ namespace Persistence.Repository
 
 
         // Not sil
-        public async Task DeleteNotesAsync(int UserId)
+        public async Task DeleteNotesAsync(int Id)
         {
-            var note = await context.notes.FindAsync(UserId);
+            var note = await context.notes.FindAsync(Id);
             if(note!=null)
             {
                 context.notes.Remove(note);

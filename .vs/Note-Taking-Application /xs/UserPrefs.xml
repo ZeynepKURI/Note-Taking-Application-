@@ -1,57 +1,41 @@
 ﻿<Properties StartupConfiguration="{0283267E-C30A-474D-9A36-3F8C3F44F4DF}|https">
-  <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" relfile="Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" line="29" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Presentation/Api/Controllers/NotesController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Presentation/Api/Controllers/UserNotesController.cs">
     <Files>
-      <File FileName="Core/a/Interfaces/INotesService.cs" />
-      <File FileName="Presentation/Api/Controllers/UserNotesController.cs" Line="45" Column="54" />
-      <File FileName="Presentation/Api/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="Presentation/Api/Controllers/UserNotesController.cs" Line="80" Column="63" />
       <File FileName="Infrastructure/Persistence/Service/NotesService.cs" />
-      <File FileName="Presentation/Api/Program.cs" />
-      <File FileName="Presentation/Api/appsettings.json" />
-      <File FileName="Infrastructure/Persistence/Repository/NotesRepo.cs" />
-      <File FileName="Core/a/DTOs/NoteDTO.cs" />
-      <File FileName="Core/a/Interfaces/IAuthService.cs" />
-      <File FileName="Presentation/Api/Controllers/NotesController.cs" Line="1" Column="1" />
-      <File FileName="Presentation/Api/Controllers/AdminController.cs" />
-      <File FileName="Infrastructure/Persistence/Repository/AuthService.cs" />
-      <File FileName="Core/Domain/Enitities/Note.cs" />
-      <File FileName="Core/a/DTOs/LoginResponse.cs" />
-      <File FileName="Core/a/DTOs/RegisterResponse.cs" />
-      <File FileName="Infrastructure/Persistence/DependencyInjection/ServiceContainer.cs" />
-      <File FileName="Core/a/Mapping/MappingProfile.cs" Line="13" Column="83" />
+      <File FileName="Core/a/Interfaces/INotesService.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Note-Taking-Application ">
-            <Node name="Core">
-              <Node name="Application">
-                <Node name="DTOs" expanded="True" />
-                <Node name="Interfaces" expanded="True" />
-              </Node>
+          <Node name="Note-Taking-Application " expanded="True">
+            <Node name="Core" expanded="True">
               <Node name="Domain" expanded="True">
                 <Node name="Enitities" expanded="True" />
               </Node>
             </Node>
-            <Node name="Infrastructure" expanded="True" />
-            <Node name="Presentation" expanded="True">
-              <Node name="Api" expanded="True">
-                <Node name="Controllers" expanded="True">
-                  <Node name="NotesController.cs" selected="True" />
-                </Node>
+            <Node name="Presentation">
+              <Node name="Api">
+                <Node name="Controllers" expanded="True" />
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="Note-Taking-Application " expanded="True" selected="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/zeynepkuri/Projects/Note-Taking-Application/Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" relfile="Infrastructure/Persistence/Migrations/20250107120625_InitialMigration.cs" line="29" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Presentation.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
