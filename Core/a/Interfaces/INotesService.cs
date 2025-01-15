@@ -10,7 +10,7 @@ namespace Application.Interfaces
         Task<NoteDTO> GetNotesByIdAsync(int Id);
         Task AddNotesAsync(NoteDTO noteDTO);
         Task UpdateNotesAsync(NoteDTO noteDTO, int Id);
-        Task DeleteNotesAsync(int Id, int UserId);
+        Task DeleteNotesAsync(int Id);
         Task<List<NoteDTO>> GetNotesByUserIdAsync(int userId);  // Kullanıcıya öz
        
     }

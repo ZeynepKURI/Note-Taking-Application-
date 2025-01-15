@@ -30,7 +30,7 @@ namespace Api.Controllers
             {
                 
 
-       
+  
                 await _notesService.AddNotesAsync(noteDTO);
                 return Ok("Note created successfully");
             }
@@ -40,7 +40,7 @@ namespace Api.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         [Authorize(Roles = "User")]
         public async Task<ActionResult> UpdateNotes(int Id, [FromBody] NoteDTO noteDTO)
         {
@@ -57,18 +57,18 @@ namespace Api.Controllers
             }
         }
 
-        [HttpGet("{Id}")]
+        [HttpDelete]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> DeleteAsync(int Id, int UserId)
+        public async Task<IActionResult> DeleteAsync(int Id)
         {
             try
             {
              
 
                 // Servis katmanında kontrol yapıyoruz
-                await _notesService.DeleteNotesAsync(Id, UserId);
+                await _notesService.DeleteNotesAsync(Id);
 
-                return NoContent();  // Silme işlemi başarılı, geri dönüş yok
+                return Ok("Notes deleted successfully");  // Silme işlemi başarılı, geri dönüş yok
             }
             catch (UnauthorizedAccessException)
             {

@@ -131,7 +131,7 @@ namespace Persistence.Service
 
 
 
-        public async Task DeleteNotesAsync(int Id, int UserId)
+        public async Task DeleteNotesAsync(int Id)
         {
             var note = await _notesRepo.GetAllByIdAsync(Id);
 
@@ -142,7 +142,7 @@ namespace Persistence.Service
 
             var userId = GetUserIdFromJwt();
 
-            // Kullanıcı kendi notunu silebilir veya admin silme yetkisine sahip olmalı
+          
             if (note.UserId != userId && GetUserRole() != "User")
             {
                 await _notesRepo.DeleteNotesAsync(Id);
@@ -169,7 +169,7 @@ namespace Persistence.Service
 
             var userId = GetUserIdFromJwt();
 
-            // Kullanıcı kendi notunu güncelleyebilir veya admin güncelleyebilir
+            
             if (note.UserId != userId && GetUserRole() != "User")
 
             {
@@ -198,11 +198,7 @@ namespace Persistence.Service
             return _mapper.Map<List<NoteDTO>>(notes);
         }
 
-        public Task DeleteNotesAsync(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
+      
       
     }
 }
